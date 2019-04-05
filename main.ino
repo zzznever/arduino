@@ -53,7 +53,7 @@ void oled_display(void) {
 
 void loop(void) {
   // Call sensors.requestTemperatures() to issue a global temperature and Requests to all devices on the bus
-  //sensors.requestTemperatures();
+  sensors.requestTemperatures();
   float h = dht.readHumidity();
   //float t = dht.readTemperature();
 

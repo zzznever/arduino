@@ -1,0 +1,5 @@
+aq_visible_light 260
+aq_ir_light 254
+aq_uv_light 0.02
+aq_water_temp 85.00
+aq_humidity 17.00
