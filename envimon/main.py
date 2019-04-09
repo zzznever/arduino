@@ -5,15 +5,15 @@ from datetime import datetime
 DEBUG_ENABLE = True
 
 ser = Serial("COM3", 9600, timeout=10)
-
-sleep(10)  # Wait for serial link
+ser.flushInput()
+# sleep(10)  # Wait for serial link
 
 while True:
     # Change this to use a temp file, then replace existing
     f = open("C:\\Program Files\\wmi_exporter\\textfile_inputs\\aquarium.prom", "w+")
-    cc = str(ser.readline())
-    cc = cc[2:][:-5]
-    cc = cc.split()
+    ser_bytes = ser.readline()
+    decode_bytes = ser_bytes[0:len(ser_bytes)-2].decode("utf-8")
+    cc = decode_bytes.split()
 
     if DEBUG_ENABLE is True:
         print(str(datetime.now()) + ': ', end='')  # end='' replaces newline with nul
